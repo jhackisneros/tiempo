@@ -1,9 +1,11 @@
 import gradio as gr
 from ui.week_view import render_week
-from ui.styles import custom_theme
+from ui.styles import apply_theme
 
 def home_interface():
-    with gr.Blocks(title="☀️ App del Tiempo", theme=custom_theme) as demo:
+    with gr.Blocks(title="☀️ App del Tiempo") as demo:
+        apply_theme(demo)  # Aplica el CSS
+
         gr.Markdown("## ☁️☀️ Bienvenido a la App del Tiempo", elem_id="title")
 
         with gr.Row():

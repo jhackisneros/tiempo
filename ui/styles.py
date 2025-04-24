@@ -1,7 +1,15 @@
 import gradio as gr
 
-custom_theme = gr.themes.Base().set(
-    background_fill="#87CEEB",  # azul cielo claro
-    text_color_primary="white",
-    border_color_primary="white",
-)
+# En lugar de usar `.set()`, usamos directamente Blocks con css
+custom_css = """
+body {
+    background-color: #87CEEB !important;
+    color: white !important;
+}
+.gr-button {
+    color: #87CEEB !important;
+}
+"""
+
+def apply_theme(blocks: gr.Blocks):
+    blocks.css = custom_css
